@@ -782,7 +782,8 @@
 
                             <ImageView
                                 style="@style/ListItemLeadingIcon"
-                                android:src="@drawable/ic_settings" />
+                                android:src="@drawable/ic_settings"
+                                app:tint="?attr/colorOnSurfaceVariant" />
 
                             <LinearLayout style="@style/ListItemTextGroup">
 

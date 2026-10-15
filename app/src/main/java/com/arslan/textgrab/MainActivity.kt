@@ -619,18 +619,33 @@ open class MainActivity : AppCompatActivity(), SelectableOcrView.Listener {
 
     private fun applySegmentShapes(vararg rows: MaterialCardView) {
         val shown = rows.filter { it.isVisible }
+        val radiusLarge = 16f * resources.displayMetrics.density
+        val radiusSmall = 4f * resources.displayMetrics.density
         shown.forEachIndexed { index, row ->
-            val shape = when {
-                shown.size == 1 -> com.google.android.material.R.style.ShapeAppearance_Material3_ListItem_Single
-                index == 0 -> com.google.android.material.R.style.ShapeAppearance_Material3_ListItem_First
-                index == shown.lastIndex -> com.google.android.material.R.style.ShapeAppearance_Material3_ListItem_Last
-                else -> com.google.android.material.R.style.ShapeAppearance_Material3_ListItem_Middle
+            runCatching {
+                val shape = when {
+                    shown.size == 1 -> com.google.android.material.R.style.ShapeAppearance_Material3_ListItem_Single
+                    index == 0 -> com.google.android.material.R.style.ShapeAppearance_Material3_ListItem_First
+                    index == shown.lastIndex -> com.google.android.material.R.style.ShapeAppearance_Material3_ListItem_Last
+                    else -> com.google.android.material.R.style.ShapeAppearance_Material3_ListItem_Middle
+                }
+                row.shapeAppearanceModel = ShapeAppearanceModel.builder(
+                    this,
+                    shape,
+                    com.google.android.material.R.style.ShapeAppearance_Material3_ListItem_Single
+                ).build()
+            }.onFailure {
+                row.shapeAppearanceModel = when {
+                    shown.size == 1 -> ShapeAppearanceModel.builder().setAllCornerSizes(radiusLarge).build()
+                    index == 0 -> ShapeAppearanceModel.builder()
+                        .setTopLeftCornerSize(radiusLarge).setTopRightCornerSize(radiusLarge)
+                        .setBottomLeftCornerSize(radiusSmall).setBottomRightCornerSize(radiusSmall).build()
+                    index == shown.lastIndex -> ShapeAppearanceModel.builder()
+                        .setTopLeftCornerSize(radiusSmall).setTopRightCornerSize(radiusSmall)
+                        .setBottomLeftCornerSize(radiusLarge).setBottomRightCornerSize(radiusLarge).build()
+                    else -> ShapeAppearanceModel.builder().setAllCornerSizes(radiusSmall).build()
+                }
             }
-            row.shapeAppearanceModel = ShapeAppearanceModel.builder(
-                this,
-                shape,
-                com.google.android.material.R.style.ShapeAppearance_Material3_ListItem_Single
-            ).build()
         }
     }
 

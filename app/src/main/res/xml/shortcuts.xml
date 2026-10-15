@@ -8,7 +8,7 @@
         android:shortcutLongLabel="@string/shortcut_camera_long">
         <intent
             android:action="com.arslan.textgrab.action.CAMERA"
-            android:targetPackage="com.arslan.textgrab"
+            android:targetPackage="com.arslan.textgrab.pqoanm"
             android:targetClass="com.arslan.textgrab.CameraActivity" />
     </shortcut>
 </shortcuts>

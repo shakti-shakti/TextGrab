@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.TextGrab" parent="Theme.Material3Expressive.DayNight.NoActionBar">
+    <style name="Theme.TextGrab" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorOnPrimary">@color/on_primary</item>
         <item name="colorPrimaryContainer">@color/primary_container</item>
@@ -12,6 +12,8 @@
         <item name="colorTertiary">@color/tertiary</item>
         <item name="colorTertiaryContainer">@color/tertiary_container</item>
         <item name="colorOnTertiaryContainer">@color/on_tertiary_container</item>
+        <item name="colorControlNormal">?attr/colorOnSurfaceVariant</item>
+        <item name="android:colorControlNormal">?attr/colorOnSurfaceVariant</item>
     </style>
 
     <style name="Theme.TextGrab.Starting" parent="Theme.SplashScreen">
@@ -24,13 +26,13 @@
     </style>
 
     <!-- Black from the first frame, so a cold start from the shortcut never flashes the app surface. -->
-    <style name="Theme.TextGrab.Camera">
+    <style name="Theme.TextGrab.Camera" parent="Theme.TextGrab">
         <item name="android:windowBackground">@android:color/black</item>
         <item name="android:windowSplashScreenBackground" tools:targetApi="31">@android:color/black</item>
     </style>
 
     <!-- Translucent theme for CaptureActivity ensuring notification shade collapses fully without flickering -->
-    <style name="Theme.TextGrab.Transparent" parent="Theme.Material3Expressive.DayNight.NoActionBar">
+    <style name="Theme.TextGrab.Transparent" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowContentOverlay">@null</item>
@@ -39,6 +41,8 @@
         <item name="android:backgroundDimEnabled">false</item>
         <item name="android:windowAnimationStyle">@style/NoWindowAnimation</item>
         <item name="android:windowDisablePreview">true</item>
+        <item name="colorControlNormal">?attr/colorOnSurfaceVariant</item>
+        <item name="android:colorControlNormal">?attr/colorOnSurfaceVariant</item>
     </style>
 
     <style name="NoWindowAnimation">
