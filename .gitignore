@@ -10,8 +10,6 @@ local.properties
 
 # Signing secrets: keep the keystore and its passwords out of the repo
 keystore/
-*.jks
-*.apk
 app/release/
 app/.DS_Store
 .aistudio/
