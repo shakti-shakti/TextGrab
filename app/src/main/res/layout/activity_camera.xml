@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF000000">
+
+    <!-- Camera Viewfinder -->
+    <androidx.camera.view.PreviewView
+        android:id="@+id/preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Rule of thirds Grid Overlay (togglable) -->
+    <View
+        android:id="@+id/gridOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#22FFFFFF"
+        android:visibility="gone" />
+
+    <!-- Scanner Reticle Frame -->
+    <FrameLayout
+        android:id="@+id/reticleContainer"
+        android:layout_width="290dp"
+        android:layout_height="380dp"
+        android:layout_gravity="center"
+        android:clipChildren="true">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/reticle_frame" />
+
+        <!-- Animated Laser Line -->
+        <View
+            android:id="@+id/scannerLaser"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@drawable/laser_line" />
+    </FrameLayout>
+
+    <!-- Controls Overlay -->
+    <FrameLayout
+        android:id="@+id/controls"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Top App Bar with Frosted HUD Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnClose"
+                style="?attr/materialIconButtonStyle"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_hud_button"
+                android:contentDescription="@string/back"
+                app:icon="@drawable/ic_back"
+                app:iconTint="#FFFFFF" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <!-- Hint Pill -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_hud_button"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="6dp"
+                android:text="@string/camera_guide_hint"
+                android:textAppearance="?attr/textAppearanceLabelSmall"
+                android:textColor="#E0F2FE" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGrid"
+                style="?attr/materialIconButtonStyle"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_hud_button"
+                android:contentDescription="@string/grid_guide"
+                app:icon="@drawable/ic_grid"
+                app:iconTint="#FFFFFF" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTorch"
+                style="?attr/materialIconButtonStyle"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_hud_button"
+                android:checkable="true"
+                android:contentDescription="@string/camera_torch"
+                app:icon="@drawable/ic_bolt"
+                app:iconTint="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- Zoom Selector Deck -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="128dp"
+            android:background="@drawable/bg_hud_button"
+            android:orientation="horizontal"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="4dp">
+
+            <TextView
+                android:id="@+id/btnZoom1x"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="6dp"
+                android:text="@string/zoom_1x"
+                android:textAppearance="?attr/textAppearanceLabelMedium"
+                android:textColor="#00E5FF"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btnZoom2x"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="6dp"
+                android:text="@string/zoom_2x"
+                android:textAppearance="?attr/textAppearanceLabelMedium"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- Bottom Shutter & Gallery Controls Deck -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="28dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="32dp">
+
+            <!-- Gallery Shortcut Button -->
+            <LinearLayout
+                android:id="@+id/btnCameraGallery"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_hud_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/ic_image"
+                    app:tint="#FFFFFF" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <!-- Pro Shutter Button -->
+            <FrameLayout
+                android:layout_width="88dp"
+                android:layout_height="88dp"
+                android:gravity="center">
+
+                <View
+                    android:id="@+id/btnShutterRing"
+                    android:layout_width="88dp"
+                    android:layout_height="88dp"
+                    android:background="@drawable/bg_hud_button" />
+
+                <View
+                    android:id="@+id/btnShutter"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/shutter"
+                    android:clickable="true"
+                    android:contentDescription="@string/camera_shutter"
+                    android:focusable="true" />
+            </FrameLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <!-- Spacer / Quick Info -->
+            <LinearLayout
+                android:id="@+id/btnCameraInfo"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_hud_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/ic_sparkle"
+                    app:tint="#00E5FF" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>

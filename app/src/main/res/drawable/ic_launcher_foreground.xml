@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Reticle Frame Corners -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M34,44 V36 A4,4 0 0,1 38,32 H46 M62,32 H70 A4,4 0 0,1 74,36 V44 M74,64 V72 A4,4 0 0,1 70,76 H62 M46,76 H38 A4,4 0 0,1 34,72 V64"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:strokeWidth="4" />
+
+    <!-- Text Lines -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M44,46 h20 M44,54 h20 M44,62 h14"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:strokeWidth="3.5" />
+
+    <!-- Glowing Cyan Laser Beam -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M30,54 h48"
+        android:strokeColor="#00E5FF"
+        android:strokeLineCap="round"
+        android:strokeWidth="2.5" />
+</vector>

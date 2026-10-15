@@ -1,0 +1,1181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- HOME ROOT CONTAINER -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/homeGroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingHorizontal="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:maxWidth="580dp"
+            android:orientation="vertical"
+            android:paddingBottom="48dp">
+
+            <!-- LUXURY HERO BANNER -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_hero_card"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:src="@drawable/ic_tile"
+                            app:tint="#FFFFFF" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/app_name"
+                                android:textAppearance="?attr/textAppearanceTitleLarge"
+                                android:textColor="#FFFFFF"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_hero_title"
+                                android:textAppearance="?attr/textAppearanceBodySmall"
+                                android:textColor="#BAE6FD" />
+                        </LinearLayout>
+
+                        <!-- PRO & OFFLINE BADGES -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_pill_badge"
+                            android:text="@string/badge_pro"
+                            android:textAppearance="?attr/textAppearanceLabelSmall"
+                            android:textColor="#FFFFFF"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:lineSpacingExtra="2dp"
+                        android:text="@string/home_hero_subtitle"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="#F0F9FF" />
+
+                    <!-- Quick Metrics Chips -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/heroMetricScans"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_hud_button"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="4dp"
+                            android:text="0 Scans"
+                            android:textAppearance="?attr/textAppearanceLabelSmall"
+                            android:textColor="#E0F2FE" />
+
+                        <TextView
+                            android:id="@+id/heroMetricEngine"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/bg_hud_button"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="4dp"
+                            android:text="On-Device ML Kit"
+                            android:textAppearance="?attr/textAppearanceLabelSmall"
+                            android:textColor="#E0F2FE" />
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- SEGMENTED NAVIGATION TABS -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:scrollbars="none">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/mainTabsGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/tabStudio"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/tab_scan"
+                        app:chipIcon="@drawable/ic_camera" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/tabHistory"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tab_history"
+                        app:chipIcon="@drawable/ic_history" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/tabTools"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tab_tools"
+                        app:chipIcon="@drawable/ic_sparkle" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/tabEngines"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tab_settings"
+                        app:chipIcon="@drawable/ic_translate" />
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+
+            <!-- SECTION 1: STUDIO / SCAN HUB -->
+            <LinearLayout
+                android:id="@+id/sectionStudio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical">
+
+                <!-- Pro Camera Scanner Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardCamera"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="?attr/colorPrimary"
+                    app:strokeWidth="1.5dp"
+                    app:cardBackgroundColor="?attr/colorSurfaceContainerLow">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="18dp">
+
+                        <ImageView
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/bg_pill_badge"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_camera"
+                            app:tint="#FFFFFF" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/action_camera_hud"
+                                android:textAppearance="?attr/textAppearanceTitleMedium"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/action_camera_hud_desc"
+                                android:textAppearance="?attr/textAppearanceBodySmall"
+                                android:textColor="?attr/colorOnSurfaceVariant" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_chevron_right"
+                            app:tint="?attr/colorPrimary" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Import Image Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardPickImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="1dp"
+                    app:strokeColor="?attr/colorOutlineVariant"
+                    app:strokeWidth="1dp"
+                    app:cardBackgroundColor="?attr/colorSurfaceContainerLow">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="18dp">
+
+                        <ImageView
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/bg_hud_button"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_image"
+                            app:tint="?attr/colorPrimary" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/action_import_image"
+                                android:textAppearance="?attr/textAppearanceTitleMedium"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/action_import_image_desc"
+                                android:textAppearance="?attr/textAppearanceBodySmall"
+                                android:textColor="?attr/colorOnSurfaceVariant" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_chevron_right"
+                            app:tint="?attr/colorOnSurfaceVariant" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Clipboard Grab Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardClipboard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="1dp"
+                    app:strokeColor="?attr/colorOutlineVariant"
+                    app:strokeWidth="1dp"
+                    app:cardBackgroundColor="?attr/colorSurfaceContainerLow">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="18dp">
+
+                        <ImageView
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/bg_hud_button"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_paste"
+                            app:tint="?attr/colorSecondary" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/action_clipboard_scan"
+                                android:textAppearance="?attr/textAppearanceTitleMedium"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/action_clipboard_scan_desc"
+                                android:textAppearance="?attr/textAppearanceBodySmall"
+                                android:textColor="?attr/colorOnSurfaceVariant" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_chevron_right"
+                            app:tint="?attr/colorOnSurfaceVariant" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Screen Capture & Accessibility Setup Card -->
+                <TextView
+                    android:id="@+id/setupHeader"
+                    style="@style/HomeSectionHeader"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/section_setup" />
+
+                <LinearLayout
+                    android:id="@+id/setupCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.listitem.ListItemCardView
+                        android:id="@+id/btnAccessibility"
+                        style="@style/ListItemCard">
+
+                        <LinearLayout style="@style/ListItemRow">
+
+                            <ImageView
+                                style="@style/ListItemLeadingIcon"
+                                android:src="@drawable/ic_bolt" />
+
+                            <LinearLayout style="@style/ListItemTextGroup">
+
+                                <TextView
+                                    style="@style/ListItemLabel"
+                                    android:text="@string/a11y_setup" />
+
+                                <TextView
+                                    style="@style/ListItemSupportingText"
+                                    android:text="@string/a11y_setup_summary" />
+                            </LinearLayout>
+
+                            <ImageView
+                                style="@style/ListItemTrailingIcon"
+                                android:src="@drawable/ic_chevron_right" />
+                        </LinearLayout>
+                    </com.google.android.material.listitem.ListItemCardView>
+
+                    <com.google.android.material.listitem.ListItemCardView
+                        android:id="@+id/btnSetAssistant"
+                        style="@style/ListItemCard">
+
+                        <LinearLayout style="@style/ListItemRow">
+
+                            <ImageView
+                                style="@style/ListItemLeadingIcon"
+                                android:src="@drawable/ic_mic" />
+
+                            <LinearLayout style="@style/ListItemTextGroup">
+
+                                <TextView
+                                    style="@style/ListItemLabel"
+                                    android:text="@string/set_as_assistant" />
+
+                                <TextView
+                                    style="@style/ListItemSupportingText"
+                                    android:text="@string/set_as_assistant_summary" />
+                            </LinearLayout>
+
+                            <ImageView
+                                style="@style/ListItemTrailingIcon"
+                                android:src="@drawable/ic_chevron_right" />
+                        </LinearLayout>
+                    </com.google.android.material.listitem.ListItemCardView>
+                </LinearLayout>
+
+                <!-- Pro Quick Tips Banner -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/hintRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardCornerRadius="16dp"
+                    app:strokeColor="?attr/colorOutlineVariant"
+                    app:strokeWidth="1dp"
+                    app:cardBackgroundColor="?attr/colorSurfaceContainerLowest">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:src="@drawable/ic_info"
+                            app:tint="?attr/colorPrimary" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:text="@string/home_hint"
+                            android:textAppearance="?attr/textAppearanceBodySmall"
+                            android:textColor="?attr/colorOnSurfaceVariant" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- SECTION 2: HISTORY & PINS -->
+            <LinearLayout
+                android:id="@+id/sectionHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="4dp"
+                    android:paddingBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/historyHeaderCount"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/history_title"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnClearHistory"
+                        style="?attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/clear_history"
+                        android:textColor="?attr/colorError" />
+                </LinearLayout>
+
+                <!-- History Items List Container -->
+                <LinearLayout
+                    android:id="@+id/historyItemsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <!-- Empty State View -->
+                <LinearLayout
+                    android:id="@+id/historyEmptyView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="32dp">
+
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/ic_history"
+                        app:tint="?attr/colorOutline" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/history_empty"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="@string/history_empty_hint"
+                        android:textAppearance="?attr/textAppearanceBodySmall"
+                        android:textColor="?attr/colorOnSurfaceVariant" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- SECTION 3: SMART TOOLS -->
+            <LinearLayout
+                android:id="@+id/sectionTools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Smart Text Studio Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardToolStudio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="1dp"
+                    app:strokeColor="?attr/colorOutlineVariant"
+                    app:strokeWidth="1dp"
+                    app:cardBackgroundColor="?attr/colorSurfaceContainerLow">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_hud_button"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_sparkle"
+                            app:tint="?attr/colorPrimary" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/tool_smart_studio"
+                                android:textAppearance="?attr/textAppearanceTitleMedium"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/tool_smart_studio_desc"
+                                android:textAppearance="?attr/textAppearanceBodySmall"
+                                android:textColor="?attr/colorOnSurfaceVariant" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_chevron_right"
+                            app:tint="?attr/colorOnSurfaceVariant" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Voice Reader Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardToolVoice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="1dp"
+                    app:strokeColor="?attr/colorOutlineVariant"
+                    app:strokeWidth="1dp"
+                    app:cardBackgroundColor="?attr/colorSurfaceContainerLow">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_hud_button"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_audio"
+                            app:tint="?attr/colorSecondary" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/tool_tts_title"
+                                android:textAppearance="?attr/textAppearanceTitleMedium"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/tool_tts_desc"
+                                android:textAppearance="?attr/textAppearanceBodySmall"
+                                android:textColor="?attr/colorOnSurfaceVariant" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_chevron_right"
+                            app:tint="?attr/colorOnSurfaceVariant" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Format & Clean Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardToolFormat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="1dp"
+                    app:strokeColor="?attr/colorOutlineVariant"
+                    app:strokeWidth="1dp"
+                    app:cardBackgroundColor="?attr/colorSurfaceContainerLow">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_hud_button"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_clean"
+                            app:tint="?attr/colorTertiary" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/tool_cleaner_title"
+                                android:textAppearance="?attr/textAppearanceTitleMedium"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/tool_cleaner_desc"
+                                android:textAppearance="?attr/textAppearanceBodySmall"
+                                android:textColor="?attr/colorOnSurfaceVariant" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_chevron_right"
+                            app:tint="?attr/colorOnSurfaceVariant" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- SECTION 4: ENGINES & TRANSLATION -->
+            <LinearLayout
+                android:id="@+id/sectionEngines"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/HomeSectionHeader"
+                    android:text="@string/section_translation" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.listitem.ListItemCardView
+                        android:id="@+id/rowTargetLanguage"
+                        style="@style/ListItemCard"
+                        app:shapeAppearance="@style/ShapeAppearance.Material3.ListItem.First">
+
+                        <LinearLayout style="@style/ListItemRow">
+
+                            <ImageView
+                                style="@style/ListItemLeadingIcon"
+                                android:src="@drawable/ic_translate" />
+
+                            <LinearLayout style="@style/ListItemTextGroup">
+
+                                <TextView
+                                    style="@style/ListItemLabel"
+                                    android:text="@string/translate_to" />
+
+                                <TextView
+                                    android:id="@+id/textTargetLanguage"
+                                    style="@style/ListItemSupportingText" />
+                            </LinearLayout>
+
+                            <ImageView
+                                style="@style/ListItemTrailingIcon"
+                                android:src="@drawable/ic_chevron_right" />
+                        </LinearLayout>
+                    </com.google.android.material.listitem.ListItemCardView>
+
+                    <com.google.android.material.listitem.ListItemCardView
+                        android:id="@+id/rowEngine"
+                        style="@style/ListItemCard"
+                        app:shapeAppearance="@style/ShapeAppearance.Material3.ListItem.Middle">
+
+                        <LinearLayout style="@style/ListItemRow">
+
+                            <ImageView
+                                style="@style/ListItemLeadingIcon"
+                                android:src="@drawable/ic_settings" />
+
+                            <LinearLayout style="@style/ListItemTextGroup">
+
+                                <TextView
+                                    style="@style/ListItemLabel"
+                                    android:text="@string/engine_title" />
+
+                                <TextView
+                                    android:id="@+id/textEngine"
+                                    style="@style/ListItemSupportingText" />
+                            </LinearLayout>
+
+                            <ImageView
+                                style="@style/ListItemTrailingIcon"
+                                android:src="@drawable/ic_chevron_right" />
+                        </LinearLayout>
+                    </com.google.android.material.listitem.ListItemCardView>
+
+                    <com.google.android.material.listitem.ListItemCardView
+                        android:id="@+id/rowLanguagePacks"
+                        style="@style/ListItemCard"
+                        app:shapeAppearance="@style/ShapeAppearance.Material3.ListItem.Last">
+
+                        <LinearLayout style="@style/ListItemRow">
+
+                            <ImageView
+                                style="@style/ListItemLeadingIcon"
+                                android:src="@drawable/ic_download" />
+
+                            <LinearLayout style="@style/ListItemTextGroup">
+
+                                <TextView
+                                    style="@style/ListItemLabel"
+                                    android:text="@string/language_packs" />
+
+                                <TextView
+                                    android:id="@+id/textLanguagePacks"
+                                    style="@style/ListItemSupportingText" />
+                            </LinearLayout>
+
+                            <ImageView
+                                style="@style/ListItemTrailingIcon"
+                                android:src="@drawable/ic_chevron_right" />
+                        </LinearLayout>
+                    </com.google.android.material.listitem.ListItemCardView>
+                </LinearLayout>
+
+                <TextView
+                    style="@style/HomeSectionHeader"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/section_more" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.listitem.ListItemCardView
+                        android:id="@+id/adbRow"
+                        style="@style/ListItemCard"
+                        android:contentDescription="@string/adb_copy"
+                        app:shapeAppearance="@style/ShapeAppearance.Material3.ListItem.First">
+
+                        <LinearLayout style="@style/ListItemRow">
+
+                            <ImageView
+                                style="@style/ListItemLeadingIcon"
+                                android:src="@drawable/ic_code" />
+
+                            <LinearLayout style="@style/ListItemTextGroup">
+
+                                <TextView
+                                    style="@style/ListItemLabel"
+                                    android:text="@string/adb_label" />
+
+                                <TextView
+                                    android:id="@+id/adbCommand"
+                                    style="@style/ListItemSupportingText"
+                                    android:layout_marginTop="4dp"
+                                    android:fontFamily="monospace" />
+                            </LinearLayout>
+
+                            <ImageView
+                                style="@style/ListItemTrailingIcon"
+                                android:src="@drawable/ic_copy" />
+                        </LinearLayout>
+                    </com.google.android.material.listitem.ListItemCardView>
+
+                    <com.google.android.material.listitem.ListItemCardView
+                        android:id="@+id/adbCameraRow"
+                        style="@style/ListItemCard"
+                        android:contentDescription="@string/adb_camera_copy"
+                        app:shapeAppearance="@style/ShapeAppearance.Material3.ListItem.Last">
+
+                        <LinearLayout style="@style/ListItemRow">
+
+                            <ImageView
+                                style="@style/ListItemLeadingIcon"
+                                android:src="@drawable/ic_code" />
+
+                            <LinearLayout style="@style/ListItemTextGroup">
+
+                                <TextView
+                                    style="@style/ListItemLabel"
+                                    android:text="@string/adb_camera_label" />
+
+                                <TextView
+                                    android:id="@+id/adbCameraCommand"
+                                    style="@style/ListItemSupportingText"
+                                    android:layout_marginTop="4dp"
+                                    android:fontFamily="monospace" />
+                            </LinearLayout>
+
+                            <ImageView
+                                style="@style/ListItemTrailingIcon"
+                                android:src="@drawable/ic_copy" />
+                        </LinearLayout>
+                    </com.google.android.material.listitem.ListItemCardView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:gravity="center"
+                android:paddingHorizontal="16dp"
+                android:text="@string/home_subtitle"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:textColor="?attr/colorOnSurfaceVariant" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- FULL SCREEN VIEWER (CAMERA/IMAGE/SCREENSHOT OCR) -->
+    <FrameLayout
+        android:id="@+id/viewerGroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <com.arslan.textgrab.SelectableOcrView
+            android:id="@+id/ocrView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Floating Action Header Bar -->
+        <com.google.android.material.floatingtoolbar.FloatingToolbarLayout
+            android:id="@+id/topBar"
+            style="@style/Widget.Material3.FloatingToolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_margin="10dp"
+            app:marginLeftSystemWindowInsets="true"
+            app:marginRightSystemWindowInsets="true"
+            app:marginTopSystemWindowInsets="true">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBack"
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/back"
+                    app:icon="@drawable/ic_back" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSelectAll"
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/select_all"
+                    app:icon="@drawable/ic_select_all" />
+
+                <!-- Smart Text Studio Action -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTextMode"
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/tool_smart_studio"
+                    app:icon="@drawable/ic_sparkle"
+                    app:iconTint="?attr/colorPrimary" />
+
+                <!-- Voice Reader Action -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnVoiceReader"
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/tool_tts_title"
+                    app:icon="@drawable/ic_audio" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTranslateAll"
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:contentDescription="@string/translate"
+                    app:icon="@drawable/ic_translate" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCopyAll"
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/copy_all"
+                    app:icon="@drawable/ic_copy" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnShareAll"
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/share"
+                    app:icon="@drawable/ic_share" />
+            </LinearLayout>
+        </com.google.android.material.floatingtoolbar.FloatingToolbarLayout>
+
+        <!-- Progress Indicator -->
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/ocrProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:waveAmplitude="3dp"
+            app:wavelength="28dp"
+            tools:visibility="visible" />
+
+        <!-- Floating Selection Toolbar -->
+        <com.google.android.material.floatingtoolbar.FloatingToolbarLayout
+            android:id="@+id/selectionToolbar"
+            style="@style/Widget.Material3.FloatingToolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/toolbarCopy"
+                    style="?attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/copy" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/toolbarSelectAll"
+                    style="?attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_all_short" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/toolbarVoice"
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/tool_tts_title"
+                    app:icon="@drawable/ic_audio" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/toolbarShare"
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/share"
+                    app:icon="@drawable/ic_share" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/toolbarSearch"
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/search_web"
+                    app:icon="@drawable/ic_search" />
+            </LinearLayout>
+        </com.google.android.material.floatingtoolbar.FloatingToolbarLayout>
+
+        <!-- Google Circle to Search Floating Bottom Dock -->
+        <com.google.android.material.floatingtoolbar.FloatingToolbarLayout
+            android:id="@+id/circleSearchDock"
+            style="@style/Widget.Material3.FloatingToolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="24dp"
+            android:visibility="gone"
+            app:marginBottomSystemWindowInsets="true"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="4dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/dockBtnSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/search_web"
+                    app:icon="@drawable/ic_search"
+                    app:iconTint="#FFFFFF" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/dockBtnTranslate"
+                    style="?attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/translate"
+                    app:icon="@drawable/ic_translate" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/dockBtnCopy"
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/copy"
+                    app:icon="@drawable/ic_copy" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/dockBtnVoice"
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/tool_tts_title"
+                    app:icon="@drawable/ic_audio" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/dockBtnStudio"
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/tool_smart_studio"
+                    app:icon="@drawable/ic_sparkle"
+                    app:iconTint="?attr/colorPrimary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/dockBtnDismiss"
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/back"
+                    app:icon="@drawable/ic_delete" />
+            </LinearLayout>
+        </com.google.android.material.floatingtoolbar.FloatingToolbarLayout>
+    </FrameLayout>
+
+    <!-- LOADING SHIMMER / PROGRESS OVERLAY -->
+    <FrameLayout
+        android:id="@+id/progressGroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorSurface"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.google.android.material.loadingindicator.LoadingIndicator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Processing AI Vision OCR…"
+                android:textAppearance="?attr/textAppearanceTitleSmall"
+                android:textColor="?attr/colorOnSurfaceVariant" />
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>
